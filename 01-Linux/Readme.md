@@ -176,9 +176,15 @@ See [here](ssh.md) for different types of SSH connection with respect to your OS
 
 1. What is the ``grep``command?
 
+The 'grep' command is a command that searches for a certain pattern inside a certain file. If it finds it, it prints it in the terminal. Additionally, you can use wildcards such as * to search for the pattern in multiple files. Such sintax could be grep "Hello" *.txt which finds the pattern "Hello" in any .txt file.
+
 2. What is the meaning of ``#!/bin/python`` at the start of scripts?
 
+The "#!/bin/python" or "#!/bin/bash" are called snippets that are found at the start of scripts. When the user calls an executable file without specifying which program to run it on, the system reads the first line to find if there is a snippet that specifies it for the user. In the first case, it is telling the system to run such file with python and in the second case with bash.
+
 3. Download using ``wget`` the [*bsds500*](https://www2.eecs.berkeley.edu/Research/Projects/CS/vision/grouping/resources.html#bsds500) image segmentation database, and decompress it using ``tar`` (keep it in you hard drive, we will come back over this data in a few weeks).
+
+
  
 4. What is the disk size of the uncompressed dataset, How many images are in the directory 'BSR/BSDS500/data/images'?
  
