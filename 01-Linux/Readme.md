@@ -1,5 +1,3 @@
-
-
 # Introduction to Linux
 
 ## Preparation
@@ -184,15 +182,70 @@ The "#!/bin/python" or "#!/bin/bash" are called snippets that are found at the s
 
 3. Download using ``wget`` the [*bsds500*](https://www2.eecs.berkeley.edu/Research/Projects/CS/vision/grouping/resources.html#bsds500) image segmentation database, and decompress it using ``tar`` (keep it in you hard drive, we will come back over this data in a few weeks).
 
+As you can see in the image, I downloaded the database using wget.
 
+IMAGE
  
 4. What is the disk size of the uncompressed dataset, How many images are in the directory 'BSR/BSDS500/data/images'?
+
+As you can see in the image, the size of the uncompressed dataset is around 73 Mb. I was able to do this by using the command du -sh that I found in this [*link*](https://unix.stackexchange.com/questions/185764/how-do-i-get-the-size-of-a-directory-on-the-command-line)
+
+IMAGE
+
+One easy way to count how many images are in the images folder is to get inside each folder and use the command find -name "*.jpg" | wc -l to get the number of files inside the folder. If we do this for the 3 folders in images we find that there are 500 images. 200 in train, 200 in test and 100 in val.
+
  
 5. What are all the different resolutions? What is their format? Tip: use ``awk``, ``sort``, ``uniq`` 
 
+There are 2 kinds of resolutions, 481x321 and 321x481 (landscape and portrait respectively). Their format is .jpg.
+
+To find the format I first used identify in one random image in test. When I saw the jpg format I used find . -name "*.*" -exec identify {} \; | grep -i jpg | wc -l and got a count of 200 which is the same as the number I obtained in point 4 and therefore all the images are .jpg. I did the same thing with train and val and obtained the same result. For the resolutions I used the following code:
+
+#!/bin/bash
+
+images=$(find -name "*.jpg")
+touch reso.txt
+
+for im in ${images[*]}
+do
+(identify $im | cut -d ' ' -f 3) >> reso.txt
+done
+
+After I had the reso.txt file I used the sort command and found that there were only two resolutions as described before. I did the same on the three folders and found the same results. 
+
 6. How many of them are in *landscape* orientation (opposed to *portrait*)? Tip: use ``awk`` and ``cut``
- 
+
+I used the following code to find the amount of landscape oriented pictures vs portrait oriented ones:
+
+#!/bin/bash
+
+images=$(find -name "*.jpg")
+
+declare -i lands=0
+declare -i port=0
+for im in ${images[*]}
+do
+identify $im | grep -i -q 481x321
+if [ $? -eq 0 ]
+then
+lands=$[lands+1] 
+else
+port=$[port+1] 
+fi
+done
+
+echo lands = $lands
+echo port = $port
+
+When I did this on each of the folders (test, train, and val) the distribution goes as it follows:
+test -> 134 landscape, 66 portrait
+train-> 137 landscape, 63 portrait
+val  ->  77 landscape, 23 portrait
+
+For the arithmetic I used I guided myself with the comment of Karoly Horvath in this [*link*](https://stackoverflow.com/questions/6348902/how-can-i-add-numbers-in-a-bash-script)
+
 7. Crop all images to make them square (256x256) and save them in a different folder. Tip: do not forget about  [imagemagick](http://www.imagemagick.org/script/index.php).
+
 
 
 # Report
