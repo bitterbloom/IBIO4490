@@ -258,7 +258,46 @@ For the arithmetic I used I guided myself with the comment of Karoly Horvath in 
 
 7. Crop all images to make them square (256x256) and save them in a different folder. Tip: do not forget about  [imagemagick](http://www.imagemagick.org/script/index.php).
 
+First I created a folder inside each of the folders of test, train and val called X_256. After I did this, I copied every file in the folder into the recently created one. This code can be found below:
 
+```bash
+#!/bin/bash
+
+images=$(find -name "*.jpg")
+rm train_256
+mkdir train_256
+
+for im in ${images[*]}
+do
+cp $im ./train_256
+done
+```
+
+IMAGE1
+
+When I had all the files in the new folder, I had to resize them to 256x256. To do this I implemented the following code:
+
+```bash
+#!/bin/bash
+
+images=$(find -name "*.jpg")
+for im in ${images[*]}
+do
+convert $im -resize 256x256\! $im
+done
+```
+
+IMAGE2
+
+As you can see, all the images are of the same size just by looking at them. For detailed information, I used the following code to check and the image to prove it.
+
+```bash
+#!/bin/bash
+
+identify -format "%G" 2092.jpg
+```
+
+IMAGE3
 
 # Report
 
