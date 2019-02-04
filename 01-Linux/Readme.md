@@ -201,6 +201,7 @@ There are 2 kinds of resolutions, 481x321 and 321x481 (landscape and portrait re
 
 To find the format I first used identify in one random image in test. When I saw the jpg format I used find . -name "*.*" -exec identify {} \; | grep -i jpg | wc -l and got a count of 200 which is the same as the number I obtained in point 4 and therefore all the images are .jpg. I did the same thing with train and val and obtained the same result. For the resolutions I used the following code:
 
+```bash
 #!/bin/bash
 
 images=$(find -name "*.jpg")
@@ -210,6 +211,7 @@ for im in ${images[*]}
 do
 (identify $im | cut -d ' ' -f 3) >> reso.txt
 done
+```
 
 After I had the reso.txt file I used the sort command and found that there were only two resolutions as described before. I did the same on the three folders and found the same results. 
 
@@ -217,6 +219,7 @@ After I had the reso.txt file I used the sort command and found that there were 
 
 I used the following code to find the amount of landscape oriented pictures vs portrait oriented ones:
 
+```bash
 #!/bin/bash
 
 images=$(find -name "*.jpg")
@@ -236,6 +239,7 @@ done
 
 echo lands = $lands
 echo port = $port
+```
 
 When I did this on each of the folders (test, train, and val) the distribution goes as it follows:
 test -> 134 landscape, 66 portrait
