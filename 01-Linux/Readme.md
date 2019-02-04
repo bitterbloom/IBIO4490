@@ -184,13 +184,13 @@ The "#!/bin/python" or "#!/bin/bash" are called snippets that are found at the s
 
 As you can see in the image, I downloaded the database using wget.
 
-IMAGE
+![wget](https://user-images.githubusercontent.com/45858167/52185608-31579080-27ef-11e9-845d-88828b61fbd0.png)
  
 4. What is the disk size of the uncompressed dataset, How many images are in the directory 'BSR/BSDS500/data/images'?
 
 As you can see in the image, the size of the uncompressed dataset is around 73 Mb. I was able to do this by using the command du -sh that I found in this [*link*](https://unix.stackexchange.com/questions/185764/how-do-i-get-the-size-of-a-directory-on-the-command-line)
 
-IMAGE
+![diskspace](https://user-images.githubusercontent.com/45858167/52185623-564c0380-27ef-11e9-9e36-cb86134c6f47.png)
 
 One easy way to count how many images are in the images folder is to get inside each folder and use the command find -name "*.jpg" | wc -l to get the number of files inside the folder. If we do this for the 3 folders in images we find that there are 500 images. 200 in train, 200 in test and 100 in val.
 
