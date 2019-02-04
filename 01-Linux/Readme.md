@@ -192,14 +192,22 @@ As you can see in the image, the size of the uncompressed dataset is around 73 M
 
 ![diskspace](https://user-images.githubusercontent.com/45858167/52185623-564c0380-27ef-11e9-9e36-cb86134c6f47.png)
 
-One easy way to count how many images are in the images folder is to get inside each folder and use the command find -name "*.jpg" | wc -l to get the number of files inside the folder. If we do this for the 3 folders in images we find that there are 500 images. 200 in train, 200 in test and 100 in val.
+One easy way to count how many images are in the images folder is to get inside each folder and use the command 
+```bash
+find -name "*.jpg" | wc -l 
+```
+to get the number of files inside the folder. If we do this for the 3 folders in images we find that there are 500 images. 200 in train, 200 in test and 100 in val.
 
  
 5. What are all the different resolutions? What is their format? Tip: use ``awk``, ``sort``, ``uniq`` 
 
 There are 2 kinds of resolutions, 481x321 and 321x481 (landscape and portrait respectively). Their format is .jpg.
 
-To find the format I first used identify in one random image in test. When I saw the jpg format I used find . -name "*.*" -exec identify {} \; | grep -i jpg | wc -l and got a count of 200 which is the same as the number I obtained in point 4 and therefore all the images are .jpg. I did the same thing with train and val and obtained the same result. For the resolutions I used the following code:
+To find the format I first used identify in one random image in test. When I saw the jpg format I used 
+```bash
+find . -name "*.*" -exec identify {} \; | grep -i jpg | wc -l
+```
+and got a count of 200 which is the same as the number I obtained in point 4 and therefore all the images are .jpg. I did the same thing with train and val and obtained the same result. For the resolutions I used the following code:
 
 ```bash
 #!/bin/bash
