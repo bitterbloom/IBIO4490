@@ -249,10 +249,10 @@ echo lands = $lands
 echo port = $port
 ```
 
-When I did this on each of the folders (test, train, and val) the distribution goes as it follows:
-test -> 134 landscape, 66 portrait
-train-> 137 landscape, 63 portrait
-val  ->  77 landscape, 23 portrait
+When I did this on each of the folders (test, train, and val) the distribution goes as it follows:  
+test -> 134 landscape, 66 portrait  
+train-> 137 landscape, 63 portrait  
+val  ->  77 landscape, 23 portrait  
 
 For the arithmetic I used I guided myself with the comment of Karoly Horvath in this [*link*](https://stackoverflow.com/questions/6348902/how-can-i-add-numbers-in-a-bash-script)
 
@@ -273,7 +273,7 @@ cp $im ./train_256
 done
 ```
 
-IMAGE1
+![new_directory](https://user-images.githubusercontent.com/45858167/52231511-2997fa80-2888-11e9-97cc-aff81ab889e6.png)
 
 When I had all the files in the new folder, I had to resize them to 256x256. To do this I implemented the following code:
 
@@ -287,7 +287,7 @@ convert $im -resize 256x256\! $im
 done
 ```
 
-IMAGE2
+![new_size](https://user-images.githubusercontent.com/45858167/52231515-2c92eb00-2888-11e9-8069-b5caca563b3a.png)
 
 As you can see, all the images are of the same size just by looking at them. For detailed information, I used the following code to check and the image to prove it.
 
@@ -297,7 +297,7 @@ As you can see, all the images are of the same size just by looking at them. For
 identify -format "%G" 2092.jpg
 ```
 
-IMAGE3
+![prove](https://user-images.githubusercontent.com/45858167/52231519-2f8ddb80-2888-11e9-9523-7362460a3e68.png)
 
 # Report
 
