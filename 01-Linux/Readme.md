@@ -250,9 +250,9 @@ echo port = $port
 ```
 
 When I did this on each of the folders (test, train, and val) the distribution goes as it follows:  
-test -> 134 landscape, 66 portrait  
-train-> 137 landscape, 63 portrait  
-val  ->  77 landscape, 23 portrait  
+test  -> 134 landscape, 66 portrait  
+train -> 137 landscape, 63 portrait  
+val   ->  77 landscape, 23 portrait  
 
 For the arithmetic I used I guided myself with the comment of Karoly Horvath in this [*link*](https://stackoverflow.com/questions/6348902/how-can-i-add-numbers-in-a-bash-script)
 
