@@ -49,3 +49,6 @@ Notes:
 Bonus: 
 - I could contemplate the posibility of a bonus if someone soes not use the BDSD dataset. Be creative.
 
+Comments:
+
+I had to put the images in grayscale since i couldn't find a way to concatenate 3D arrays with 2D ones on the same array. Additionally I used a module called shutil to be able to delete directories with files inside.
