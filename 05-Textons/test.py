@@ -88,3 +88,7 @@ plot_confusion_matrix(confusionmat, classes=range(0,10), normalize=True,
                       title='Normalized confusion matrix for test')
 
 plt.show()
+<<<<<<< HEAD
+plt.savefig("ConfMatTest.png")
+=======
+>>>>>>> 65ad25cf8ff9da1d467677266a45be5e2cf53ed4

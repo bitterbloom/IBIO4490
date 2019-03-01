@@ -72,7 +72,7 @@ for im in images_train:
     texton_maps.append(assignTextons(fbRun(fb,im),textons.transpose()))
 
 from sklearn.ensemble import RandomForestClassifier
-RF = RandomForestClassifier(n_estimators = 350)
+RF = RandomForestClassifier(n_estimators = 350,max_depth=50)
 
 hists = []
 for txtmap in texton_maps:
@@ -101,4 +101,4 @@ plot_confusion_matrix(confusionmat, classes=range(0,10), normalize=True,
                       title='Normalized confusion matrix for train')
 
 plt.show()
-
+plt.savefig("ConfMatTrain.png")
