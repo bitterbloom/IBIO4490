@@ -16,3 +16,5 @@ _data/
 05-Textons/matlab 
 *.zip 
  *.mat 
+03-Python/wiki.mat 
+05-Textons/cifar-10-batches-py/ 
