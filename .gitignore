@@ -14,3 +14,5 @@ _data/
 *.png
 *.gif
 05-Textons/matlab 
+*.zip 
+ *.mat 
