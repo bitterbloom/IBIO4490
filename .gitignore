@@ -9,3 +9,7 @@ solution/
 _data/
 *.pyc
 .ipynb*
+*.jpg
+*.jpeg
+*.png
+*.gif
