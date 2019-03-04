@@ -18,3 +18,4 @@ _data/
  *.mat 
 03-Python/wiki.mat 
 05-Textons/cifar-10-batches-py/ 
+06-Segmentation/BSDS_small/ 

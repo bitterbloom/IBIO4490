@@ -1,5 +1,4 @@
-#!/home/afromero/anaconda3/bin/ipython
-# Change this line 
+#!/home/asvolcinschi/anaconda3/bin/ipython3
 
 def imshow(img, seg, title='Image'):
     import matplotlib.pyplot as plt
@@ -21,9 +20,17 @@ def groundtruth(img_file):
 def check_dataset(folder):
     import os
     if not os.path.isdir(folder):
-        # Download it.
-        # Put your code here. Then remove the 'pass' command.
-        pass
+        import requests
+        url = "http://157.253.196.67/BSDS_small.zip"
+        r = requests.get(url)
+        with open("BSDS_small.zip", "wb") as code:
+                code.write(r.content)
+
+        import zipfile
+        zip_ref = zipfile.ZipFile("./BSDS_small.zip", 'r')
+        zip_ref.extractall("./")
+        zip_ref.close()
+        os.remove("./BSDS_small.zip")
 
 if __name__ == '__main__':
     import argparse
