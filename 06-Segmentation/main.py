@@ -1,4 +1,4 @@
-#!/home/asvolcinschi/anaconda3/bin/ipython3
+#!/home/asvolcinschi/anaconda3/bin/ipython
 
 def imshow(img, seg, title='Image'):
     import matplotlib.pyplot as plt
@@ -14,7 +14,7 @@ def groundtruth(img_file):
     import scipy.io as sio
     img = imageio.imread(img_file)
     gt=sio.loadmat(img_file.replace('jpg', 'mat'))
-    segm=gt['groundTruth'][0,5][0][0]['Segmentation']
+    segm=gt['groundTruth'][0,2][0][0]['Segmentation']
     imshow(img, segm, title='Groundtruth')
     
 def check_dataset(folder):
