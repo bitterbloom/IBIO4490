@@ -40,8 +40,14 @@ samples = 0;
 while samples < num_samples
     samples = samples + 1;
     num = round((num_images - 1)*rand + 1);
-    image =  single(imresize(imread(fullfile(image_files(num).folder,image_files(num).name)),[36 36]));
-    H1 = vl_hog(image,feature_params.hog_cell_size);
+    image =  imread(fullfile(image_files(num).folder,image_files(num).name));
+    min = 20;
+    max_x = size(image,1) - 20;
+    max_y = size(image,2) - 20;
+    rand_x = (max_x - min)*rand + min;
+    rand_y = (max_y - min)*rand + min;
+    window = image(rand_x - 18:rand_x + 17,rand_y - 18:rand_y+17);
+    H1 = vl_hog(single(window),feature_params.hog_cell_size);
     Hog{samples,1} = H1(:);
 end
 Hog = cell2mat(Hog);
