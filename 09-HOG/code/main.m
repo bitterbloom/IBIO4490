@@ -37,8 +37,8 @@
 % This should work on 32 and 64 bit versions of Windows, MacOS, and Linux
 close all
 clear
-%run('/home/vision/data/vlfeat/toolbox/vl_setup.m');
-run('/home/asvolcinschi/IBIO4490/09-HOG/LabHOG/vlfeat-0.9.21/toolbox/vl_setup.m');
+run('/media/user_home2/vision/data/vlfeat/toolbox/vl_setup.m');
+%run('/home/asvolcinschi/IBIO4490/09-HOG/LabHOG/vlfeat-0.9.21/toolbox/vl_setup.m');
 [~,~,~] = mkdir('visualizations');
 
 data_path = '../data/'; %change if you want to work with a network copy
