@@ -41,7 +41,7 @@ run('/media/user_home2/vision/data/vlfeat/toolbox/vl_setup.m');
 %run('/home/asvolcinschi/IBIO4490/09-HOG/LabHOG/vlfeat-0.9.21/toolbox/vl_setup.m');
 [~,~,~] = mkdir('visualizations');
 
-data_path = '../data/'; %change if you want to work with a network copy
+data_path = './data/'; %change if you want to work with a network copy
 train_path_pos = fullfile(data_path, 'caltech_faces/Caltech_CropFaces'); %Positive training examples. 36x36 head crops
 non_face_scn_path = fullfile(data_path, 'train_non_face_scenes'); %We can mine random or hard negatives from here
 test_scn_path = fullfile(data_path,'test_scenes/test_jpg'); %CMU+MIT test scenes
