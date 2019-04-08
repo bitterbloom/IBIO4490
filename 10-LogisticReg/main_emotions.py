@@ -379,7 +379,19 @@ def plot_confusion_matrix(y_true, y_pred, classes,
 
 if __name__ == '__main__':
     mpl.use('Agg')
-    model = Model()
-    train(model)
-    test()
-
+    import argparse
+    parser = argparse.ArgumentParser()
+    
+    parser.add_argument('--test', action ='store_true')
+    parser.add_argument('--demo', action ='store_true')
+    
+    opts = parser.parse_args()
+    
+    if opts.test:
+        test()
+    elif opts.demo:
+        demo()
+    else:
+        model = Model()
+        train(model)
+        test()
