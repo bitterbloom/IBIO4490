@@ -457,24 +457,6 @@ with torch.no_grad():
 print('output: ', output.data.shape)
 print('input: ', data.shape)
 
-data, target = next(iter_loader)
-if cuda:
-    data = data.to('cuda')
-with torch.no_grad():
-    output = model(data, debug=True)
-
-data, target = next(iter_loader)
-if cuda:
-    data = data.to('cuda')
-with torch.no_grad():
-    output = model(data, debug=True)
-
-data, target = next(iter_loader)
-if cuda:
-    data = data.to('cuda')
-with torch.no_grad():
-    output = model(data, debug=True)
-
 if resume:
     print('Loading checkpoint from: '+resume)
     checkpoint = torch.load(resume)
